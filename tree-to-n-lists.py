@@ -1,7 +1,8 @@
 import sys
+from collections import defaultdict
 
 class tree:
-    d = dict()
+    d = defaultdict(list) #every key of this dict has default value of empty list
 
     def __repr__(self):
 	return str(self.value)
@@ -29,7 +30,7 @@ class tree:
 
     @staticmethod
     def addNodetoLevel(node, level = 0):
-	tree.d.setdefault(level, []).append(node)
+	tree.d[level].append(node)
 
     def printLevels(self):
 	for (k, v) in self.d.items():
