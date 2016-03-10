@@ -29,10 +29,7 @@ class tree:
 
     @staticmethod
     def addNodetoLevel(node, level = 0):
-	if tree.d.has_key(level):
-	    tree.d[level].append(node)
-	else:
-	    tree.d[level] = [node]
+	tree.d.setdefault(level, []).append(node)
 
     def printLevels(self):
 	for (k, v) in self.d.items():
