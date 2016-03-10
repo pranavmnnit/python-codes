@@ -13,12 +13,18 @@ class tree:
 	return self.right
 
     def insert(self, value):
-	if self.value == value:
-	    return value
-	elif value > self.value:
-	    return (self.right or tree(value)).insert(value)
-	else:
-	    return (self.left or tree(value)).insert(value)
+	if self == None:
+	    return
+	if value > self.value:
+	    if self.getRight() == None:
+	        self.right = tree(value)
+	    else:
+		self.right.insert(value)
+        else:
+	    if self.getLeft() == None:
+	        self.left = tree(value)
+	    else:
+		self.left.insert(value)
 
     @staticmethod
     def insert2(root, value):
